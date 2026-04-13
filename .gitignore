@@ -1,0 +1,12 @@
+# Word temp files
+~$*.docx
+~WRL*.tmp
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+Thumbs.db

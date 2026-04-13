@@ -1,0 +1,121 @@
+Investment_ID,Name,Cost,Return
+INV_001,Microsoft Bond,22,93.23
+INV_002,Gold Fund,7,52.15
+INV_003,Copper,22,130.08
+INV_004,Samsung Bond,84,82.43
+INV_005,UK Government Bond,88,97.47
+INV_006,Ethereum,43,139.28
+INV_007,New York Apartment,45,94.36
+INV_008,Uber,36,81.39
+INV_009,Clean Energy Fund,22,53.23
+INV_010,Apple Bond,25,57.87
+INV_011,BlackRock,69,81.62
+INV_012,Gold,28,63.1
+INV_013,Samsung,74,17.42
+INV_014,BMW Bond,37,134.85
+INV_015,Tech Growth Fund,15,42.01
+INV_016,Balanced Fund,31,127.98
+INV_017,Morgan Stanley,40,131.8
+INV_018,PayPal,39,139.11
+INV_019,China Government Bond,25,101.34
+INV_020,Berlin Apartment,10,35.04
+INV_021,Disney,10,48.07
+INV_022,McDonald's Bond,40,77.55
+INV_023,Dividend Fund,7,36.96
+INV_024,Miami Villa,77,57.77
+INV_025,Ferrari,27,46.21
+INV_026,Barclays,8,48.42
+INV_027,Europe Stock Fund,23,55.03
+INV_028,Sydney House,12,33.69
+INV_029,Mumbai Office,70,63.81
+INV_030,Microsoft,10,50.48
+INV_031,Airbnb,5,43.7
+INV_032,Nike,29,21.37
+INV_033,Pfizer,44,111.69
+INV_034,Oil,11,80.94
+INV_035,Panasonic,12,87.92
+INV_036,World Stock Fund,43,95.89
+INV_037,Avalanche,80,17.44
+INV_038,Fidelity,11,55.92
+INV_039,Visa,23,124.98
+INV_040,Sugar,45,96.77
+INV_041,Hermes,8,53.05
+INV_042,Johnson & Johnson,32,46.22
+INV_043,Japan Government Bond,9,30.12
+INV_044,Disney Bond,12,32.42
+INV_045,Dubai Apartment,12,42.05
+INV_046,USA Government Bond,8,30.36
+INV_047,S&P 500 Fund,9,56.5
+INV_048,Tesla,11,41.73
+INV_049,Walmart,52,13.24
+INV_050,Tokyo Apartment,33,62.81
+INV_051,Singapore Condo,12,44.41
+INV_052,Google,29,54.73
+INV_053,BNB,26,108.68
+INV_054,Amazon Bond,11,41.94
+INV_055,Rolex,27,92.0
+INV_056,Intel,27,108.2
+INV_057,Healthcare Fund,39,130.43
+INV_058,Nestle,6,40.2
+INV_059,Netflix,45,9.01
+INV_060,Asia Stock Fund,15,50.29
+INV_061,Citibank,6,44.81
+INV_062,Dogecoin,15,53.94
+INV_063,Meta,20,73.86
+INV_064,Sony Bond,11,58.73
+INV_065,Polkadot,37,32.83
+INV_066,Gucci,50,137.12
+INV_067,Toyota,51,69.82
+INV_068,Louis Vuitton,17,91.45
+INV_069,Real Estate Fund,46,121.52
+INV_070,London Apartment,36,102.0
+INV_071,Ripple,23,88.91
+INV_072,Nasdaq Fund,40,93.38
+INV_073,MasterCard,35,134.55
+INV_074,IKEA,45,122.69
+INV_075,Dow Jones Fund,13,58.51
+INV_076,Toyota Bond,20,139.38
+INV_077,Chicago Office,51,29.64
+INV_078,Netflix Bond,7,32.49
+INV_079,Goldman Sachs,8,43.22
+INV_080,Silver,32,124.39
+INV_081,Coca-Cola,55,90.28
+INV_082,Google Bond,6,58.47
+INV_083,IBM,14,46.99
+INV_084,Prada,31,88.8
+INV_085,Natural Gas,31,99.35
+INV_086,Toronto Condo,60,49.0
+INV_087,Litecoin,7,50.71
+INV_088,Cardano,63,84.25
+INV_089,Chanel,12,59.79
+INV_090,Adidas,34,83.48
+INV_091,Cotton,8,32.02
+INV_092,Hong Kong Flat,37,7.66
+INV_093,Oil and Gas Fund,44,110.16
+INV_094,Bitcoin,5,33.07
+INV_095,Deutsche Bank,13,19.36
+INV_096,Apple,9,51.19
+INV_097,HSBC,29,85.15
+INV_098,Vanguard,45,127.3
+INV_099,Solana,42,130.73
+INV_100,Starbucks,14,35.47
+INV_101,Platinum,27,111.96
+INV_102,Mercedes-Benz,11,46.04
+INV_103,McDonald's,17,28.61
+INV_104,Coca-Cola Bond,81,7.65
+INV_105,BMW,30,92.26
+INV_106,France Government Bond,14,30.77
+INV_107,Emerging Markets Fund,34,128.51
+INV_108,Coffee,54,19.81
+INV_109,Amazon,14,34.54
+INV_110,Paris Apartment,28,91.62
+INV_111,Spotify,35,101.33
+INV_112,Walmart Bond,76,44.96
+INV_113,JPMorgan,50,138.47
+INV_114,Zara,18,47.11
+INV_115,Wheat,44,131.16
+INV_116,Nike Bond,7,49.03
+INV_117,Shanghai Office,86,98.13
+INV_118,Germany Government Bond,11,33.11
+INV_119,Sony,39,137.39
+INV_120,Los Angeles House,23,134.59

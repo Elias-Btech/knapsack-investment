@@ -1,0 +1,258 @@
+════════════════════════════════════════════════════════════
+  0/1 Knapsack – Investment Portfolio Optimizer
+  Dynamic Programming  |  Python Implementation
+════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════
+  PART A – NAMED TEST CASES  (brute-force verified)
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────────────────────────
+  TEST CASE: Classic 5-item Textbook
+  n=5 items  |  Budget=10
+  Costs  : [2, 2, 3, 5, 7]
+  Returns: [6, 10, 12, 13, 20]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                   35.00  [1, 2, 3]
+  DP (1D space-opt)         35.00  (no traceback)
+  Greedy                    28.00  [1, 2, 0]
+  Brute-Force               35.00  [✓ MATCH]
+
+  Greedy gap vs DP : +7.00  (20.00% suboptimal)
+
+────────────────────────────────────────────────────────────
+  TEST CASE: Greedy Failure Demo
+  n=6 items  |  Budget=6
+  Costs  : [1, 1, 1, 1, 1, 6]
+  Returns: [3, 3, 3, 3, 3, 16]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                   16.00  [5]
+  DP (1D space-opt)         16.00  (no traceback)
+  Greedy                    15.00  [0, 1, 2, 3, 4]
+  Brute-Force               16.00  [✓ MATCH]
+
+  Greedy gap vs DP : +1.00  (6.25% suboptimal)
+
+────────────────────────────────────────────────────────────
+  TEST CASE: All Items Fit (edge case)
+  n=3 items  |  Budget=100
+  Costs  : [1, 2, 3]
+  Returns: [5, 8, 9]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                   22.00  [0, 1, 2]
+  DP (1D space-opt)         22.00  (no traceback)
+  Greedy                    22.00  [0, 1, 2]
+  Brute-Force               22.00  [✓ MATCH]
+
+  Greedy gap vs DP : +0.00  (0.00% suboptimal)
+
+────────────────────────────────────────────────────────────
+  TEST CASE: Tight Budget
+  n=3 items  |  Budget=15
+  Costs  : [10, 20, 30]
+  Returns: [60, 90, 50]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                   60.00  [0]
+  DP (1D space-opt)         60.00  (no traceback)
+  Greedy                    60.00  [0]
+  Brute-Force               60.00  [✓ MATCH]
+
+  Greedy gap vs DP : +0.00  (0.00% suboptimal)
+
+────────────────────────────────────────────────────────────
+  TEST CASE: Single Item
+  n=1 items  |  Budget=10
+  Costs  : [5]
+  Returns: [10]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                   10.00  [0]
+  DP (1D space-opt)         10.00  (no traceback)
+  Greedy                    10.00  [0]
+  Brute-Force               10.00  [✓ MATCH]
+
+  Greedy gap vs DP : +0.00  (0.00% suboptimal)
+
+────────────────────────────────────────────────────────────
+  TEST CASE: Two Items, Choose Better
+  n=2 items  |  Budget=5
+  Costs  : [5, 5]
+  Returns: [10, 8]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                   10.00  [0]
+  DP (1D space-opt)         10.00  (no traceback)
+  Greedy                    10.00  [0]
+  Brute-Force               10.00  [✓ MATCH]
+
+  Greedy gap vs DP : +0.00  (0.00% suboptimal)
+
+────────────────────────────────────────────────────────────
+  TEST CASE: No Items Fit
+  n=2 items  |  Budget=5
+  Costs  : [10, 20]
+  Returns: [5, 8]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                    0.00  []
+  DP (1D space-opt)          0.00  (no traceback)
+  Greedy                     0.00  []
+  Brute-Force                0.00  [✓ MATCH]
+
+  Greedy gap vs DP : +0.00  (0.00% suboptimal)
+
+────────────────────────────────────────────────────────────
+  TEST CASE: Large Greedy Gap
+  n=5 items  |  Budget=10
+  Costs  : [3, 3, 3, 3, 10]
+  Returns: [4, 4, 4, 4, 20]
+────────────────────────────────────────────────────────────
+  Algorithm                Return  Items chosen
+  -------------------------------------------------------
+  DP (2D)                   20.00  [4]
+  DP (1D space-opt)         20.00  (no traceback)
+  Greedy                    20.00  [4]
+  Brute-Force               20.00  [✓ MATCH]
+
+  Greedy gap vs DP : +0.00  (0.00% suboptimal)
+
+
+════════════════════════════════════════════════════════════
+  PART B – FULL DATASET  (investments.csv)
+════════════════════════════════════════════════════════════
+[✓] Loaded 120 investments from 'investments.csv'
+  Items: 120  |  Budget: $500K
+
+════════════════════════════════════════════════════════════
+  DYNAMIC PROGRAMMING RESULT
+════════════════════════════════════════════════════════════
+  Maximum Return  : $  2,633.17K
+  Total Cost Used : $       500K
+  Items Selected  : 37
+
+  ID           Name                     Cost   Return  Ratio
+  ----------------------------------------------------------
+  INV_001      Microsoft Bond             22    93.23    4.24
+  INV_002      Gold Fund                   7    52.15    7.45
+  INV_003      Copper                     22   130.08    5.91
+  INV_016      Balanced Fund              31   127.98    4.13
+  INV_019      China Government Bond      25   101.34    4.05
+  INV_021      Disney                     10    48.07    4.81
+  INV_023      Dividend Fund               7    36.96    5.28
+  INV_026      Barclays                    8    48.42    6.05
+  INV_030      Microsoft                  10    50.48    5.05
+  INV_031      Airbnb                      5    43.70    8.74
+  INV_034      Oil                        11    80.94    7.36
+  INV_035      Panasonic                  12    87.92    7.33
+  INV_038      Fidelity                   11    55.92    5.08
+  INV_039      Visa                       23   124.98    5.43
+  INV_041      Hermes                      8    53.05    6.63
+  INV_047      S&P 500 Fund                9    56.50    6.28
+  INV_053      BNB                        26   108.68    4.18
+  INV_056      Intel                      27   108.20    4.01
+  INV_058      Nestle                      6    40.20    6.70
+  INV_061      Citibank                    6    44.81    7.47
+  INV_064      Sony Bond                  11    58.73    5.34
+  INV_068      Louis Vuitton              17    91.45    5.38
+  INV_071      Ripple                     23    88.91    3.87
+  INV_075      Dow Jones Fund             13    58.51    4.50
+  INV_076      Toyota Bond                20   139.38    6.97
+  INV_078      Netflix Bond                7    32.49    4.64
+  INV_079      Goldman Sachs               8    43.22    5.40
+  INV_082      Google Bond                 6    58.47    9.74
+  INV_087      Litecoin                    7    50.71    7.24
+  INV_089      Chanel                     12    59.79    4.98
+  INV_091      Cotton                      8    32.02    4.00
+  INV_094      Bitcoin                     5    33.07    6.61
+  INV_096      Apple                       9    51.19    5.69
+  INV_101      Platinum                   27   111.96    4.15
+  INV_102      Mercedes-Benz              11    46.04    4.19
+  INV_116      Nike Bond                   7    49.03    7.00
+  INV_120      Los Angeles House          23   134.59    5.85
+════════════════════════════════════════════════════════════
+
+  DP (2D) Runtime : 15.590 ms
+  DP (1D) Runtime : 17.640 ms  →  $2,633.17K  [✓ MATCH]
+
+════════════════════════════════════════════════════════════
+  GREEDY RESULT
+════════════════════════════════════════════════════════════
+  Maximum Return  : $  2,633.17K
+  Total Cost Used : $       500K
+  Items Selected  : 37
+
+  ID           Name                     Cost   Return  Ratio
+  ----------------------------------------------------------
+  INV_082      Google Bond                 6    58.47    9.74
+  INV_031      Airbnb                      5    43.70    8.74
+  INV_061      Citibank                    6    44.81    7.47
+  INV_002      Gold Fund                   7    52.15    7.45
+  INV_034      Oil                        11    80.94    7.36
+  INV_035      Panasonic                  12    87.92    7.33
+  INV_087      Litecoin                    7    50.71    7.24
+  INV_116      Nike Bond                   7    49.03    7.00
+  INV_076      Toyota Bond                20   139.38    6.97
+  INV_058      Nestle                      6    40.20    6.70
+  INV_041      Hermes                      8    53.05    6.63
+  INV_094      Bitcoin                     5    33.07    6.61
+  INV_047      S&P 500 Fund                9    56.50    6.28
+  INV_026      Barclays                    8    48.42    6.05
+  INV_003      Copper                     22   130.08    5.91
+  INV_120      Los Angeles House          23   134.59    5.85
+  INV_096      Apple                       9    51.19    5.69
+  INV_039      Visa                       23   124.98    5.43
+  INV_079      Goldman Sachs               8    43.22    5.40
+  INV_068      Louis Vuitton              17    91.45    5.38
+  INV_064      Sony Bond                  11    58.73    5.34
+  INV_023      Dividend Fund               7    36.96    5.28
+  INV_038      Fidelity                   11    55.92    5.08
+  INV_030      Microsoft                  10    50.48    5.05
+  INV_089      Chanel                     12    59.79    4.98
+  INV_021      Disney                     10    48.07    4.81
+  INV_078      Netflix Bond                7    32.49    4.64
+  INV_075      Dow Jones Fund             13    58.51    4.50
+  INV_001      Microsoft Bond             22    93.23    4.24
+  INV_102      Mercedes-Benz              11    46.04    4.19
+  INV_053      BNB                        26   108.68    4.18
+  INV_101      Platinum                   27   111.96    4.15
+  INV_016      Balanced Fund              31   127.98    4.13
+  INV_019      China Government Bond      25   101.34    4.05
+  INV_056      Intel                      27   108.20    4.01
+  INV_091      Cotton                      8    32.02    4.00
+  INV_071      Ripple                     23    88.91    3.87
+════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════
+  DP vs GREEDY – FINAL COMPARISON
+════════════════════════════════════════════════════════════
+  Metric                                 DP       Greedy
+  -------------------------------------------------------
+  Max Return ($K)                  2,633.17     2,633.17
+  Total Cost Used ($K)                  500          500
+  Items Selected                         37           37
+  Return Difference ($K)               0.00
+  Greedy Suboptimality                0.00%
+
+  Verdict: Both found same value
+════════════════════════════════════════════════════════════
+
+  COMPLEXITY SUMMARY
+  ─────────────────────────────────────────────
+  n  (number of investments) = 120
+  W  (budget capacity)       = 500
+  n × W                      = 60,000  operations / cells
+  2D DP space  O(n×W)        = 60,000  float cells
+  1D DP space  O(W)          = 500  float cells  (×120 smaller)
+  Greedy time  O(n log n)    = 720  comparisons (approx)
+  DP time      O(n×W)        = 60,000  operations
