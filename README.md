@@ -111,15 +111,109 @@ py visualize_results.py
 
 ---
 
-## ⚡ Algorithm Comparison
+## ⚡ Time & Space Complexity Analysis
 
-| Algorithm | Time | Space | Optimal | Runtime |
+### Summary Table
+
+| Algorithm | Time Complexity | Space Complexity | Optimal? | Measured Runtime |
 |---|---|---|---|---|
 | DP (2D) | O(n × W) | O(n × W) | ✅ Yes | 11.99 ms |
 | DP (1D) | O(n × W) | O(W) | ✅ Yes | 6.77 ms |
 | Greedy | O(n log n) | O(n) | ❌ No | < 1 ms |
+| Brute-Force | O(2ⁿ) | O(n) | ✅ Yes | Infeasible (n>20) |
 
-> n = 120 investments · W = 500 ($500K budget) · n × W = 60,000 operations
+> n = 120 investments · W = 500 ($500K budget) · n × W = 60,000 cells
+
+---
+
+### 1. Dynamic Programming — 2D Table
+
+**Time: O(n × W)**
+
+The algorithm fills a table of `(n+1)` rows and `(W+1)` columns.
+For each item `i` from `1` to `n`, and each budget `w` from `0` to `W`,
+it performs exactly one comparison:
+
+```
+dp[i][w] = max(dp[i-1][w],  dp[i-1][w - cost[i]] + return[i])
+```
+
+This gives **n × W** total operations.
+With n=120 and W=500: **120 × 500 = 60,000 operations**.
+
+**Space: O(n × W)**
+
+The full table is kept in memory for traceback — all `(n+1) × (W+1)` cells.
+With n=120 and W=500: **121 × 501 = 60,621 float cells ≈ 473 KB**.
+
+---
+
+### 2. Dynamic Programming — 1D Space-Optimised
+
+**Time: O(n × W)**
+
+Identical recurrence to 2D DP — still fills n × W values.
+The key difference is the traversal direction: **right-to-left** (W down to cost[i]).
+
+This is mandatory for the 0/1 constraint. Left-to-right traversal would allow
+an item to be selected multiple times (unbounded knapsack), which is incorrect here.
+
+**Space: O(W)**
+
+Only a single array of size `W+1` is maintained — the previous row is overwritten in-place.
+With W=500: **501 float cells** — **120× more memory-efficient** than the 2D version.
+
+> Trade-off: the 1D version cannot perform traceback (no history of which items were chosen).
+> It is used here to verify the optimal value and measure the space saving.
+
+---
+
+### 3. Greedy Algorithm
+
+**Time: O(n log n)**
+
+The greedy approach has two steps:
+1. Compute the return/cost ratio for each item — **O(n)**
+2. Sort all items by ratio in descending order — **O(n log n)**
+3. Scan sorted items and pick each one if it fits — **O(n)**
+
+The dominant step is sorting, giving **O(n log n)** overall.
+With n=120: approximately **120 × log₂(120) ≈ 120 × 6.9 ≈ 828 comparisons**.
+
+**Space: O(n)**
+
+Only the ratio array and sorted index list are stored — both of size n.
+
+> ⚠️ Greedy is NOT guaranteed optimal for 0/1 Knapsack.
+> It fails when a combination of lower-ratio items yields a higher total return
+> than the top-ratio items alone. Proven by the "Greedy Failure" test case:
+> 5 items of ratio 3.0 → return=15, but 1 item of ratio 2.67 → return=16.
+
+---
+
+### 4. Brute-Force (Correctness Verifier)
+
+**Time: O(2ⁿ)**
+
+Enumerates all possible subsets of n items.
+With n=120: **2¹²⁰ ≈ 1.3 × 10³⁶** subsets — completely infeasible.
+Used only on the 8 small test cases (n ≤ 6) to verify DP correctness.
+All 8 test cases confirmed ✓ MATCH.
+
+---
+
+### 5. Why DP Beats Greedy
+
+Greedy works correctly for the **Fractional Knapsack** (where items can be split),
+because the ratio-based ordering is provably optimal when partial selection is allowed.
+
+For **0/1 Knapsack** (no splitting), greedy breaks down because:
+- It makes locally optimal choices (highest ratio first)
+- But local optimality does not guarantee global optimality
+- A single large-return item may be skipped in favour of many small high-ratio items
+
+DP avoids this by evaluating **every possible combination implicitly** through the
+recurrence table — guaranteeing the global optimum in polynomial time.
 
 ---
 
