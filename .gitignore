@@ -7,6 +7,9 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Generated charts are included in the repo for reference
+# charts/
+
 # OS files
 .DS_Store
 Thumbs.db
