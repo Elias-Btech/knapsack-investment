@@ -33,12 +33,26 @@ Brute force checks **2¹²⁰ ≈ 1.3 × 10³⁶** combinations — impossible. 
 
 ```
 knapsack_investment/
-├── 🐍 generate_dataset.py    → Creates investments.csv (120 items)
-├── 🐍 knapsack_dp.py         → DP solver + greedy comparison
-├── 📊 investments.csv        → 120 globally known investments
-├── 📄 Report.pdf             → Full academic report
-├── 📸 screenshoots/          → 9 program output screenshots
-└── 📖 README.md              → You are here
+│
+├── 🐍 knapsack_dp.py           → Core solver: DP (2D & 1D), Greedy, Brute-Force
+├── 🐍 generate_dataset.py      → Generates investments.csv (120 items, 3 tiers)
+├── 🐍 visualize_results.py     → Produces 6 polished comparison charts
+│
+├── 📊 investments.csv          → 120 globally known investments (cost & return)
+├── 📄 output_results.txt       → Full console output saved automatically
+├── 📋 requirements.txt         → Python dependencies (matplotlib)
+│
+├── 📊 charts/                  → 6 generated PNG charts (300 DPI)
+│   ├── comparison_dp_vs_greedy.png   → Return & budget utilization bar chart
+│   ├── portfolio_dp.png              → DP optimal portfolio breakdown
+│   ├── portfolio_greedy.png          → Greedy portfolio breakdown
+│   ├── test_cases_comparison.png     → All 8 test cases side by side
+│   ├── complexity_comparison.png     → Runtime & memory usage comparison
+│   └── investment_distribution.png  → Cost vs Return scatter (120 items)
+│
+├── 📸 screenshoots/            → 9 program output screenshots
+├── 📄 Report .pdf              → Full academic report
+└── 📖 README.md                → You are here
 ```
 
 ---
@@ -56,7 +70,14 @@ py knapsack_dp.py
 ```
 > Output is automatically saved to `output_results.txt`
 
-**Requirements:** Python 3.7+ · No external libraries (`csv`, `time`, `itertools` only)
+**Step 3 — Generate visualization charts (optional)**
+```bash
+pip install matplotlib
+py visualize_results.py
+```
+> Creates 6 charts in the `charts/` folder
+
+**Requirements:** Python 3.7+ · No external libraries for core solver · `matplotlib` optional for charts
 
 ---
 
@@ -102,7 +123,22 @@ py knapsack_dp.py
 
 ---
 
-## 📸 Screenshots
+## � Visualization Charts
+
+Run `py visualize_results.py` to generate 6 professional charts:
+
+1. **DP vs Greedy Comparison** — side-by-side bar charts (return & cost)
+2. **DP Portfolio Allocation** — pie chart of top 10 investments
+3. **Greedy Portfolio Allocation** — pie chart of top 10 investments
+4. **Test Case Results** — bar chart showing all 8 test cases
+5. **Complexity Comparison** — runtime and memory usage
+6. **Investment Distribution** — scatter plot of all 120 investments (cost vs return)
+
+All charts saved to `charts/` folder as high-resolution PNG files (300 DPI).
+
+---
+
+## �📸 Screenshots
 
 | # | Preview | Description |
 |---|---|---|
