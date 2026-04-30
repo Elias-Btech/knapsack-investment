@@ -50,8 +50,8 @@ def load_investments(filename: str):
                 ids.append(row["Investment_ID"].strip())
                 names.append(row["Name"].strip())
                 try:
-                    costs.append(int(row["Cost"].strip()))
-                    returns.append(float(row["Return"].strip()))
+                    costs.append(int(row["Cost ($K)"].strip()))
+                    returns.append(float(row["Return ($K)"].strip()))
                 except (ValueError, TypeError) as exc:
                     raise ValueError(
                         f"Invalid numeric value in '{filename}' on row {reader.line_num}: {exc}"

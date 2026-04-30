@@ -1,4 +1,4 @@
-Investment_ID,Name,Cost,Return
+Investment_ID,Name,Cost ($K),Return ($K)
 INV_001,Microsoft Bond,22,93.23
 INV_002,Gold Fund,7,52.15
 INV_003,Copper,22,130.08

@@ -113,8 +113,8 @@ def generate_dataset(seed: int = RANDOM_SEED) -> list[dict]:
         items.append({
             "Investment_ID": f"INV_{idx:03d}",
             "Name":          name,
-            "Cost":          cost,
-            "Return":        ret,
+            "Cost ($K)":     cost,
+            "Return ($K)":   ret,
         })
 
     random.shuffle(items)
@@ -126,7 +126,7 @@ def generate_dataset(seed: int = RANDOM_SEED) -> list[dict]:
 
 
 def write_csv(items: list[dict], filename: str) -> None:
-    fieldnames = ["Investment_ID", "Name", "Cost", "Return"]
+    fieldnames = ["Investment_ID", "Name", "Cost ($K)", "Return ($K)"]
     with open(filename, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
