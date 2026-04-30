@@ -232,21 +232,6 @@ All charts saved to `charts/` folder as high-resolution PNG files (300 DPI).
 
 ---
 
-## �📸 Screenshots
-
-| # | Preview | Description |
-|---|---|---|
-| 1 | ![](screenshoots/Screenshot_01_Test_Cases_DP_vs_Greedy.jpg) | Classic test — DP=35, Greedy=28 (20% gap) |
-| 2 | ![](screenshoots/Screenshot_02_Greedy_Failure_and_Edge_Case.jpg) | Greedy failure proof |
-| 3 | ![](screenshoots/Screenshot_03_Tight_Budget_and_Single_Item.jpg) | Boundary conditions |
-| 4 | ![](screenshoots/Screenshot_04_Choose_Better_and_No_Items_Fit.jpg) | Edge cases |
-| 5 | ![](screenshoots/Screenshot_05_Last_TestCase_and_DP_Result_Summary.jpg) | Full dataset begins |
-| 6 | ![](screenshoots/Screenshot_06_DP_Optimal_Portfolio_Full_List.jpg) | All 37 DP picks |
-| 7 | ![](screenshoots/Screenshot_07_Runtime_and_Greedy_Summary.jpg) | Runtime comparison |
-| 8 | ![](screenshoots/Screenshot_08_Greedy_Full_Portfolio_List.jpg) | All 37 Greedy picks |
-| 9 | ![](screenshoots/Screenshot_09_Final_Comparison_and_Complexity.jpg) | Final comparison |
-
----
 
 ## 🏆 Key Result
 
