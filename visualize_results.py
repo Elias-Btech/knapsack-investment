@@ -152,7 +152,7 @@ def plot_portfolio_allocation(selected, names, costs, returns,
                    edgecolor="white", linewidth=1.2, label="Return ($K)", zorder=3)
 
     # Cost markers as thin overlay
-    ax.barh(y, item_costs, color=NEUTRAL, alpha=0.25,
+    ax.barh(y, item_costs, color="#94A3B8", alpha=0.55,
             edgecolor="none", label="Cost ($K)", zorder=2)
 
     # Value labels
